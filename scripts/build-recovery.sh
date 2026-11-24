@@ -40,15 +40,26 @@ if [ ! -d .repo ]; then
         --depth=1
 fi
 
+mkdir -p .repo/local_manifests
+
+cat > .repo/local_manifests/00-shrp-fix.xml <<'EOF'
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <remove-project name="phhusson/vendor_lptools"/>
+</manifest>
+EOF
+
 repo sync \
     --force-sync \
     --force-remove-dirty \
     --no-tags \
     --no-clone-bundle \
-    -j"$(nproc)"
+    -j1 \
+    --fail-fast
 
 rm -rf "$DEVICE_PATH"
 mkdir -p "$(dirname "$DEVICE_PATH")"
+
 git clone \
     --depth=1 \
     --branch "$DEVICE_TREE_BRANCH" \
