@@ -111,7 +111,7 @@ jobs:
           LUNCH_TARGET: ${{ inputs.lunch_target }}
           BUILD_TARGET: ${{ inputs.build_target }}
           CCACHE_DIR: ${{ github.workspace }}/.ccache
-        run: ./scripts/build-recovery.sh
+        run: bash ./scripts/build-recovery.sh
 
       - name: Upload artifacts
         if: always()
