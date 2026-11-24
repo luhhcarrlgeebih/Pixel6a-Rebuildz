@@ -88,6 +88,9 @@ if [ -n "$KERNEL_TREE_URL" ] && [ -n "$KERNEL_PATH" ]; then
         "$KERNEL_PATH"
 fi
 
+# envsetup.sh assumes ZSH_VERSION may exist, while Bash has it unset.
+# Initialize it to an empty value before sourcing because this script uses nounset.
+export ZSH_VERSION="${ZSH_VERSION:-}"
 source build/envsetup.sh
 lunch "$LUNCH_TARGET"
 
