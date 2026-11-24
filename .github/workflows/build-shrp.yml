@@ -69,7 +69,9 @@ jobs:
           sudo rm -rf \
             /usr/share/dotnet \
             /usr/local/lib/android \
-            /opt/ghc || true
+            /opt/ghc \
+            /opt/hostedtoolcache/go || true
+          sudo apt-get clean
           df -h
 
       - name: Install dependencies
@@ -93,6 +95,9 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Make scripts executable
+        run: chmod +x scripts/build-recovery.sh scripts/package-installer.sh
 
       - name: Build recovery
         env:
