@@ -107,4 +107,4 @@ if [ "$FOUND_IMAGE" != true ]; then
 fi
 
 cd "$ROOT"
-./scripts/package-installer.sh "$DEVICE_NAME" "$DEST"
+bash ./scripts/package-installer.sh "$DEVICE_NAME" "$DEST"
