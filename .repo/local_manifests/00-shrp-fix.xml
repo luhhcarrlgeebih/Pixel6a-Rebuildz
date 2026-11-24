@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- phhusson/vendor_lptools was removed from GitHub.
+         Remove the stale project before repo sync starts. -->
+    <remove-project name="phhusson/vendor_lptools"/>
+</manifest>
